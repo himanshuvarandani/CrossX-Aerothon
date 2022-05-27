@@ -1,1 +1,1 @@
-<h4>To design a cross platform created the Django API to interface the frontend and the backend python code</h4>
+<h4>To design a cross platform created the Django API to interface the frontend with the backend python code</h4>
