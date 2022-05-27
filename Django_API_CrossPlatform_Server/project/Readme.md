@@ -60,4 +60,14 @@ See the section about [Check the installation document for reference](https://do
 
 `Similarly while sending a get request to the server read the respective files and sends the data in the form of json file.`
 
+`when the user writes a wrong backend code we Added a feature to reflect error message in the user's demo server `
+
 `It reflects the same backend and frotend code in the pre configured sample django project. So the user can able to download it at the end from the main server. It is workable in local and deployable in any cloud platform.` 
+
+
+# Trouble shootings
+
+### Issue with the reflecting the django backend code needs sever restart. It is fixed using python script.
+
+### Issue when the user saves the wrong python error code. It crashes the main server. It is fixed by using try except block
+
