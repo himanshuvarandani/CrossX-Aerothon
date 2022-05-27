@@ -7,39 +7,40 @@
 In the project directory, you can run:
 ## Django_Installation
 
-### **step:1**
+ **step:1**
 
-### Install pip- Open command prompt and enter following command-
-### `python -m pip install -U pip`
+ Install pip- Open command prompt and enter following command-
+ `python -m pip install -U pip`
 
-### **step:2**
+**step:2**
 
-### Install virtual environment- Enter following command in cmd-
+Install virtual environment- Enter following command in cmd-
 
-### `pip install virtualenv`
+`pip install virtualenv`
 
-### `virtualenv env_site`
+`virtualenv env_site`
 
-### **step:3**
+**step:3**
 
-### Change directory to env_site by this command-
+Change directory to env_site by this command-
 
-### `cd env_site/Scripts/activate`
+`cd env_site/Scripts/activate`
 
-### **step:4**
-### Install Django- Install django by giving following command-
+**step:4**
 
-### `pip install django`
+Install Django- Install django by giving following command-
 
-### **step:5**
+`pip install django`
 
-### Change directory to your project path where you want to create a project
+**step:5**
 
-### `django-admin startproject Project_Name`
+Change directory to your project path where you want to create a project
 
-### `cd Project_Name`
+`django-admin startproject Project_Name`
 
-### `python manage.py runserver`
+`cd Project_Name`
+
+`python manage.py runserver`
 
 
 Runs the app in the development mode.\
@@ -67,7 +68,7 @@ See the section about [Check the installation document for reference](https://do
 
 # Trouble shootings
 
-### Issue with the reflecting the django backend code needs sever restart. It is fixed using python script.
+`Issue with the reflecting the django backend code needs sever restart. It is fixed using python script.`
 
-### Issue when the user saves the wrong python error code. It crashes the main server. It is fixed by using try except block
+`Issue when the user saves the wrong python error code. It crashes the main server. It is fixed by using try except block.`
 
