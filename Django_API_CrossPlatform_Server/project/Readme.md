@@ -1,4 +1,4 @@
-<h2>For our cross platform application we created the Django API to interface the frontend with the backend python code</h2>
+<h1>**For our cross platform application we created the Django API to interface the frontend with the backend python code**</h2>
 
 # Getting Started with Create DJango
 
