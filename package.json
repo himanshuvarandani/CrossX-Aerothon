@@ -1,21 +1,38 @@
 {
-  "name": "airbus",
-  "version": "1.0.0",
-  "main": "nserver.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "all": "^0.0.0",
-    "cors": "^2.8.5",
-    "express": "^4.18.1",
-    "express-rate-limit": "^6.4.0",
-    "helmet": "^5.1.0",
-    "nodemailer": "^6.7.5",
-    "toobusy-js": "^0.5.1"
-  },
-  "description": ""
+    "name": "crossx",
+    "version": "1.0.0",
+    "main": "nserver.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon server.js "
+    },
+    "author": "Akshay Moryani (Architecture Backend)",
+    "license": "ISC",
+    "dependencies": {
+        "all": "^0.0.0",
+        "concurrently": "^7.2.1",
+        "cors": "^2.8.5",
+        "express": "^4.18.1",
+        "express-rate-limit": "^6.4.0",
+        "express-session": "^1.17.2",
+        "helmet": "^5.1.0",
+        "node-pty": "^0.10.1",
+        "nodemailer": "^6.7.5",
+        "nodemon": "^2.0.16",
+        "socket.io": "^4.5.1",
+        "toobusy-js": "^0.5.1"
+    },
+    "description": "<img src=\"Django_API_CrossPlatform_Server\\project\\project\\Cross_Platform_Architecture.png\" >",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/himanshuvarandani/CrossX-Aerothon.git"
+    },
+    "bugs": {
+        "url": "https://github.com/himanshuvarandani/CrossX-Aerothon/issues"
+    },
+    "homepage": "https://github.com/himanshuvarandani/CrossX-Aerothon#readme",
+    "keywords": [
+        "nodejs",
+        "react"
+    ]
 }
