@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import CodeEditor from '../components/CodeEditor'
 import Modal from '../components/Modal'
 import Terminal from '../components/Terminal'
@@ -15,8 +16,11 @@ const Home = () => {
   const [file, setFile] = useState("frontendhtmlcode")
   const [showModal, setShowModal] = useState(true)
   const context = useContext(AuthContext)
+  const navigate = useNavigate()
   
   useEffect(() => {
+    if (!Object.keys(context.auth).length) navigate('signin')
+
     if (showModal) return
 
     let endpoint
@@ -45,7 +49,7 @@ const Home = () => {
           .catch((error) => console.log(error))
       })
       .catch((error) => console.log(error))
-  }, [showModal])
+  }, [showModal, context.techStack])
   
   const saveCode = () => {
     const endpoint = new URL("/backend_request", context.api)
@@ -62,13 +66,15 @@ const Home = () => {
       display: 'flex',
       minHeight: '100vh',
       minWidth: '100%',
+      backgroundColor: 'gray',
     }}>
       <div style={{
         width: '10%',
         height: 'full',
-        backgroundColor: 'gray',
+        backgroundColor: '#0d111733',
         padding: '10px'
       }}>
+        <h3>Folder Structure</h3>
         <div style={{
           padding: '4px 10px'
         }}>
@@ -154,11 +160,11 @@ const Home = () => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          borderBottom: '2px solid gray',
           padding: '8px 15px'
         }}>
           <p style={{
-            margin: '2px'
+            margin: '2px',
+            color: "white",
           }}>
             {file == "frontendhtmlcode"
               ? "frontend.html"
@@ -185,6 +191,28 @@ const Home = () => {
           </button>
         </div>
         <CodeEditor files={files} setFiles={setFiles} file={file} />
+        <div style={{
+          alignItems: 'center',
+          padding: '8px 15px'
+        }}>
+          <h2 style={{
+            margin: '2px',
+            color: "white",
+          }}>
+            Preview
+          </h2>
+          <div style={{
+            backgroundColor: 'white',
+            borderRadius: '10px',
+            width: '100%',
+            minHeight: '80px',
+            marginTop: '20px 10px'
+          }}>
+            <div
+              dangerouslySetInnerHTML={files['frontendhtmlcode']}
+            />
+          </div>
+        </div>
       </div>
       <div style={{
         width: '30%',
@@ -194,6 +222,7 @@ const Home = () => {
         <div style={{
           display: 'flex',
           padding: '8px',
+          color: "white",
         }}>
           <p
             style={{
@@ -230,7 +259,8 @@ const Home = () => {
           ) : (
             <div style={{
               padding: '10px',
-              border: '2px solid black'
+              border: '2px solid black',
+              color: "white",
             }}>
               <div style={{
                 display: 'flex',

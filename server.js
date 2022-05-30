@@ -1,13 +1,20 @@
 var express = require('express');
 const path = require('path');
+const http = require('http');
 
 var nodemailer = require("nodemailer");
+
+
+var con = require("concurrently");
+
+var nodemon = require("nodemon");
 const toobusy = require('toobusy-js');
 const cors = require("cors");
 
 
 
 var app = express();
+const server = http.createServer(app);
 
 
 const { parse } = require('path');
@@ -20,13 +27,8 @@ app.use(function(req, res, next) {
     }
 });
 app.use(cors());
-const helmet = require("helmet");
-app.use(
-    helmet({
-        contentSecurityPolicy: false,
-        crossOriginEmbedderPolicy: false
-    })
-);
+
+
 
 
 /*app.get('*', function(req, res) {  
@@ -98,12 +100,16 @@ const apiLimiter2 = rateLimit({
 // Apply the rate limiting middleware to API calls only
 
 
-app.listen(process.env.PORT || 3000, function() {
+server.listen(process.env.PORT || 5000, function() {
 
-    console.log("started at 3000");
+    console.log("started at 5000");
+    const SocketService = require("./SocketService");
+    const socketService = new SocketService();
+    socketService.attachServer(server);
 
 
 });
+app.use("/login", require("./login/login"))
 
 // ejs ,handlebars pug vs ejs vs handlebars vs mustache vs eta
 app.get("/", (req, res) => {
@@ -116,7 +122,9 @@ app.get("/", (req, res) => {
 
 
     const ind = require("./index.js")
-    res.send(ind.head);
+    res.send(ind.head)
+
+    //res.sendFile(path.join(__dirname, "./client/public/index.html"));
     //res.sendFile(path.join(__dirname, '/test1.html'));
 
 });
@@ -141,20 +149,22 @@ app.get("/mod/structure", (req, res) => {
 })
 const fs = require("fs")
 app.get("/choose/:id", (req, res) => {
+    console.log("choose request")
     var id = req.params.id
-    console.log("e" + id)
+    console.log("id" + id)
     if (id !== '1' && id !== '0') {
         console.log("error" + id)
         res.json({ response: "error" })
 
     } else {
-        var apilinks = ["link1_nodejs_serevr " + id, "link1_nodejs_serevr" + id]
+        var apilinks = ["https://crossxlinka.herokuapp.com/", "https://vijayasatyad.pythonanywhere.com/"]
         var d = fs.readFileSync("./ideabox.json")
         var b = JSON.parse(d);
         console.log(b)
             //res.send(b)
 
         res.json({ api: apilinks[id], response: b })
+        console.log("send response and api")
 
     }
 
@@ -390,9 +400,3 @@ function appendtrial(type, v, v1, v2, callback) {
     console.log(p)
 
 }
-
-var n = "1256346 \n hjhj".toLowerCase()
-console.log({ m: n })
-n = n.replace("\n", "\\n")
-
-console.log({ m: n })
